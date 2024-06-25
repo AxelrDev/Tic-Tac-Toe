@@ -89,3 +89,17 @@ column:
     li $t7, 0
     li $t2,0
     li $t8,4
+
+verifyColumn:
+    lw $t6, table($t2)
+    bne $t6,$t4, nextColumn
+    addi $t2,$t2,12
+    addi $t7,$t7,1
+    beq  $t7,3, WinnerName
+    j verifyColumn
+nextColumn:
+    move $t2,$t8
+    bgt $t2,40,diagonal
+    li $t7,0
+    addi $t8,$t8,4
+    j verifyColumn

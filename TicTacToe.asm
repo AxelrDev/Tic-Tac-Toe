@@ -165,3 +165,47 @@ playAgain:
     
 finishWinner:
     jr $ra
+
+userInput:
+
+
+    li $v0, 4           
+    la $a0, user
+    syscall
+    
+    li $v0, 4           
+    la $a0, player
+    syscall
+    
+    li $v0, 1            
+    move $a0, $t4        
+    syscall
+    
+    li $v0, 4           
+    la $a0, next
+    syscall
+    
+    li $v0, 4            
+    la $a0, num       
+    syscall
+
+    li $v0, 5           
+    syscall
+    move $t2, $v0      
+    
+    jr $ra  
+    
+changePlayer:
+    beq $t4,1, player2
+player1:
+li $t0, 0x00FF00
+li $t4, 1
+j finishPlayer
+
+player2:
+li $t0, 0xFFFF00
+li $t4, 2
+
+finishPlayer:
+jr $ra
+

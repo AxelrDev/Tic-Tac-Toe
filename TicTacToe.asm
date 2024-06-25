@@ -64,11 +64,13 @@ playerMovement:
     bge $t6,1,game
     sw $t4, table($t1)
     jr $ra
-
+#Verifica si hay un ganador. Verifica si algún jugador ha ganado comprobando las filas, columnas y diagonales. 
+#Si encuentra tres celdas consecutivas con el mismo valor, declara al ganador. Además, revisa si hay empate y 
+#pregunta si desea reiniciar el juego. 
 winner:
-    li $t7, 0
-    li $t2,0
-    li $t8,12
+    li $t7, 0 #contador de celdas consecutivas
+    li $t2,0 # contador de celdas
+    li $t8,12 #desplazamiento a la siguiente linea
 verifyLine:
     lw $t6, table($t2)
     bne $t6,$t4, nextLine
@@ -76,4 +78,14 @@ verifyLine:
     addi $t7,$t7,1
     beq  $t7,3, WinnerName
     j verifyLine
-
+nextLine:
+    move $t2,$t8
+    bgt $t2,40,column
+    li $t7,0
+    addi $t8,$t8,12
+    j verifyLine
+    
+column:
+    li $t7, 0
+    li $t2,0
+    li $t8,4

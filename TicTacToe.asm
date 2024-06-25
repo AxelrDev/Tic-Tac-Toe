@@ -120,3 +120,28 @@ nextDiagonal:
     beq $t8,0,tie
     li $t7,0
     j verifyDiagonal
+
+tie:
+    addi $t9,$t9,1
+    bne $t9,9 finishWinner
+    li $v0, 4           
+    la $a0, tiePlay
+    syscall
+    
+    j playAgain
+   
+    
+WinnerName:
+
+    li $v0, 4           
+    la $a0, win
+    syscall
+    
+    li $v0, 1            
+    move $a0, $t4        
+    syscall
+    
+    li $v0, 4           
+    la $a0, next
+    syscall
+

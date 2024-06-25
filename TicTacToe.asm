@@ -165,7 +165,8 @@ playAgain:
     
 finishWinner:
     jr $ra
-
+#Solicita y procesa la entrada del usuario. Imprime mensajes solicitando la entrada del usuario y lee el número 
+#ingresado. Actualiza el registro $t2 con el valor leído.
 userInput:
 
 
@@ -194,7 +195,8 @@ userInput:
     move $t2, $v0      
     
     jr $ra  
-    
+#Alterna entre los jugadores. Cambia el jugador actual alternando entre el jugador 1 y el jugador 2. 
+#Actualiza el color y el número del jugador actual.
 changePlayer:
     beq $t4,1, player2
 player1:
@@ -208,4 +210,30 @@ li $t4, 2
 
 finishPlayer:
 jr $ra
+#Selecciona la celda correspondiente al movimiento. Calcula la posición en el display para la celda seleccionada por el 
+#jugador. Ajusta las coordenadas para dibujar el movimiento en la pantalla.
+selected:
+    blt $t2, 3, firstLine
+    blt $t2, 6, secondLine
+    blt $t2, 9, ThirdLine
+    j selected
+
+firstLine:
+    li $t1, 136
+    j draw
+secondLine:
+    li $t1, 396
+    j draw
+ThirdLine:
+    li $t1, 720
+    j draw
+    
+draw:
+    mult $t2,$t3
+    mflo $t2
+    add $t1,$t1,$t2 
+    j finishSelectd
+    
+finishSelectd:
+    jr $ra
 

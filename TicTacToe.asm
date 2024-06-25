@@ -65,4 +65,15 @@ playerMovement:
     sw $t4, table($t1)
     jr $ra
 
+winner:
+    li $t7, 0
+    li $t2,0
+    li $t8,12
+verifyLine:
+    lw $t6, table($t2)
+    bne $t6,$t4, nextLine
+    addi $t2,$t2,4
+    addi $t7,$t7,1
+    beq  $t7,3, WinnerName
+    j verifyLine
 

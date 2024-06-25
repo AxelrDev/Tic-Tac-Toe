@@ -3,9 +3,9 @@ display: .space 1024 #Para el bitmap
 table: .space 36 #Para las respuestas de las casillas
 user: .asciiz "Jugador " #No sirvio
 next: .asciiz "\n"
-num: .asciiz "Ingresar número de jugada (0-8): "
+num: .asciiz "Ingresar nÃºmero de jugada (0-8): "
 win: .asciiz "Gana el jugador "
-play_again: .asciiz "¿Quieres jugar de nuevo? (s/n): "
+play_again: .asciiz "Â¿Quieres jugar de nuevo? (s/n): "
 player: .asciiz "Jugador "
 tiePlay: .asciiz "Empate \n"
 
@@ -13,7 +13,7 @@ tiePlay: .asciiz "Empate \n"
 .globl main
 
 #Es el punto de entrada del programa. Este inicializa el juego llamando a initTable y llama las funciones correspondientes para 
-#crear el tablero. Adem�s, junto con Game realiza la l�gica principal del juego, donde pide la entrada al usuario, coloca la ficha 
+#crear el tablero. Además, junto con Game realiza la lógica principal del juego, donde pide la entrada al usuario, coloca la ficha 
 #y revisa el ganador.
 main:
     li $t0,0
@@ -35,7 +35,7 @@ main:
 
     li $t0, 0x00FF00  #Para el primero jugador(verde)
     li $t4, 1
-#realiza la l�gica principal del juego, donde pide la entrada al usuario, coloca la ficha, cambia de usuario y revisa el ganador.
+#realiza la lógica principal del juego, donde pide la entrada al usuario, coloca la ficha, cambia de usuario y revisa el ganador.
 game:
     li $t3, 20  #calcula los desplazamientos en el tablero
     jal userInput
@@ -46,4 +46,10 @@ game:
     jal changePlayer
     
     j game
+
+initTable:
+    sw $t1, table($t0)
+    addi $t0,$t0,4
+    bne $t0,40,initTable
+
 

@@ -144,4 +144,24 @@ WinnerName:
     li $v0, 4           
     la $a0, next
     syscall
+playAgain:
 
+    li $v0, 4               
+    la $a0, play_again      
+    syscall                 
+
+    li $v0, 12              
+    syscall    
+    move $t1,$v0
+    
+    li $v0, 4           
+    la $a0, next
+    syscall
+            
+    li $t0, 's'            
+    beq $t1, $t0, replayTable      
+   
+    j exit 
+    
+finishWinner:
+    jr $ra

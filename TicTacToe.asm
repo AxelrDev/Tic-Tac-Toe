@@ -46,10 +46,23 @@ game:
     jal changePlayer
     
     j game
-
+# Inicializa el tablero y deja el espacio con 0`s.
 initTable:
     sw $t1, table($t0)
     addi $t0,$t0,4
     bne $t0,40,initTable
+# Maneja el movimiento del jugador. Verifica si la celda seleccionada está vacía antes de realizar el movimiento. 
+#Si la celda está vacía, guarda el número del jugador en la celda correspondiente del tablero. Además, revisa si 
+#la entrada está dentro de los limites (0-8) si no vuelve al preguntar.
+playerMovement:
+    blt $t2, 0, game #limite
+    bgt $t2, 8, game #limite
+    
+    mult $t2,$t5
+    mflo $t1
+    lw $t6, table($t1)
+    bge $t6,1,game
+    sw $t4, table($t1)
+    jr $ra
 
 

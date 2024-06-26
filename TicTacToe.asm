@@ -236,4 +236,38 @@ draw:
     
 finishSelectd:
     jr $ra
+drawMovement:
+    sw $t0, display($t1)
+    jr $ra
 
+
+createVerticalLine:
+    sw $t0, display($t1)
+    addi $t1, $t1, 64
+    blt $t1, 1024, createVerticalLine
+    
+    jr $ra
+    
+    
+createHorizontalLine:
+    sw $t0, display($t1)
+    addi $t1, $t1, 4
+    addi $t2, $t2, 1
+    bne $t2, 16, createHorizontalLine
+    
+    jr $ra
+    
+replayTable:
+    li $t1, 0
+    li $t0, 0x000000               
+replayTableLoop:
+   sw $t0, display($t1)
+   addi $t1, $t1,4
+   beq $t1,1024,main
+   
+   j replayTableLoop
+               
+
+exit:
+    li $v0, 10
+    syscall

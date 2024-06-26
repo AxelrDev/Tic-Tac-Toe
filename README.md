@@ -48,7 +48,8 @@ Tic-tac-toe se trata sobre el juego en el cual hay que colocar piezas en un tabl
 > Finaliza la ejecución del programa.
 
 ## Errores: 
-> No imprime user, pero si imprime lo que sigue. 
+> No imprime user, pero si imprime lo que sigue.
+> El programa se cae al ingresar algo que no sea un número
 
 ## Mejoras:
 > 1. Que imprima user.

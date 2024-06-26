@@ -8,10 +8,10 @@ Tic-tac-toe se trata sobre el juego en el cual hay que colocar piezas en un tabl
 2.	Se debe de descargar y guardar el archivo 3 en raya.asm
 3.	Después de ejecutar el archivo MARS, abrir el archivo de 3 en raya.asm.
 4.	Se debe de abrir el bitmap en MARS:
-  1)	Ir a la opción Tools de MARS
-  2)	Seleccionar Bitmap display
-  3)	Ajustar los parámetros del tamaño de píxel, ambos en 32 y ajustar los parámetros del display, ambos en 512.
-  4)	Oprimir la opción de conectarlo con MIPS
+>  1)	Ir a la opción Tools de MARS
+>  2)	Seleccionar Bitmap display
+>  3)	Ajustar los parámetros del tamaño de píxel, ambos en 32 y ajustar los parámetros del display, ambos en 512.
+>  4)	Oprimir la opción de conectarlo con MIPS
 5.	Compilar el archivo y ejecutarlo.
 - **Segunda parte:**
 1.	Para jugar se debe de colocar el numero entre 0 y 8, los cuales corresponden a la casilla, en la terminal.
@@ -60,5 +60,5 @@ Tic-tac-toe se trata sobre el juego en el cual hay que colocar piezas en un tabl
 >Este proyecto fomento en nosotros el conocimiento y el uso de lenguaje ensamblador, en MIPS. Nos impulsó a investigar las formas de interfaces graficas y su uso en MARS. Y consecuentemente estos aprendizajes nos ayudara a mejorar nuestras capacidades de programación y razonamiento para el futuro. 
 
 ## Autores:  
-> Axel Rojas Retana C36944
-> José Pablo Brenes Coto C31289
+> 1. Axel Rojas Retana C36944
+> 2. José Pablo Brenes Coto C31289

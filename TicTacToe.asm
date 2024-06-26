@@ -3,9 +3,9 @@ display: .space 1024 #Para el bitmap
 table: .space 36 #Para las respuestas de las casillas
 user: .asciiz "Jugador " #No sirvio
 next: .asciiz "\n"
-num: .asciiz "Ingresar nÃºmero de jugada (0-8): "
+num: .asciiz "Ingresar número de jugada (0-8): "
 win: .asciiz "Gana el jugador "
-play_again: .asciiz "Â¿Quieres jugar de nuevo? (s/n): "
+play_again: .asciiz "¿Quieres jugar de nuevo? (s/n): "
 player: .asciiz "Jugador "
 tiePlay: .asciiz "Empate \n"
 

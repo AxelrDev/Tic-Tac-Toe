@@ -43,7 +43,7 @@ Tic-tac-toe se trata sobre el juego en el cual hay que colocar piezas en un tabl
 - **createHorizontalLine:**
 > Dibuja líneas horizontales en el tablero. Dibuja una línea horizontal en la posición especificada del display. Repite el proceso hasta completar la línea.
 - **replayTable:**
-> Reinicia display. Cambia los valores de display a 0`s.
+> Reinicia display a color negro.
 - **exit:**
 > Finaliza la ejecución del programa.
 
@@ -51,7 +51,13 @@ Tic-tac-toe se trata sobre el juego en el cual hay que colocar piezas en un tabl
 > No imprime user, pero si imprime lo que sigue. 
 
 ## Mejoras:
-> Que imprima user.
+> 1. Que imprima user.
+> 2. Que el tablero se cree mediante un método createTable
+> 3. Tener un contador de partidas ganadas por jugador
+> 4. Limpiar el display al finalizar la partida
+> 5. Optimizar el uso de registros
+> 6. Quitar las duplicaciones de código
+
 
 ## Resultados:
 >Se logra lo que se propuso. Se puede jugar el 3 en raya o TikTakTok de forma completa y funcional, se muestran las fichas en el bitmap. Se puede identificar cuando gana y en tal caso reiniciar el juego.

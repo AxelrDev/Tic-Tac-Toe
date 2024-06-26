@@ -236,11 +236,13 @@ draw:
     
 finishSelectd:
     jr $ra
+#Dibuja el movimiento en la pantalla. Escribe el color correspondiente en la posición calculada del display.
 drawMovement:
     sw $t0, display($t1)
     jr $ra
 
-
+#Dibuja líneas verticales en el tablero. Dibuja una línea vertical en la posición especificada del display. 
+#Repite el proceso hasta completar la línea.
 createVerticalLine:
     sw $t0, display($t1)
     addi $t1, $t1, 64
@@ -248,7 +250,8 @@ createVerticalLine:
     
     jr $ra
     
-    
+#Dibuja líneas horizontales en el tablero. Dibuja una línea horizontal en la posición especificada del display. 
+#Repite el proceso hasta completar la línea.    
 createHorizontalLine:
     sw $t0, display($t1)
     addi $t1, $t1, 4
@@ -256,7 +259,7 @@ createHorizontalLine:
     bne $t2, 16, createHorizontalLine
     
     jr $ra
-    
+#Reinicia display. Cambia los valores de display a 0`s    
 replayTable:
     li $t1, 0
     li $t0, 0x000000               
